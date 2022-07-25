@@ -1,0 +1,14 @@
+Wan Chai:
+
+1. Wan Chai Garden, 300 square, rental, Price:15002
+2. Cool Garden, 1725 square, sale, Price: 4502
+
+Kowloon City:
+
+1.Sadness Garden, 600 square, sale, 5502
+2.Kowloon Garden, 1725 square, rental, 8000
+
+Tuen Mun
+
+1. Prime Garden, 600 square, rental, 7502
+2.Happy Garden, 1725 square, rental, 1003

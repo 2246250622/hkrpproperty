@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="./img/ico/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" href="./css/styles/styles.css">
+		<link rel="stylesheet" href="./css/fontawesome-free-5.15.1-web/css/all.css">
+		<link rel="stylesheet" href="./css/styles/update-property.css">
+		<link rel="stylesheet" href="./css/styles/chatbox.css">
+		<!-- data -->
+		<script src="./data/house.js"></script>
+		<script src="./data/district.js"></script>
+		<script src="./js/loadData.js"></script>
+		<script src="./js/comment.js"></script>
+		<script src="./js/property.js"></script>
+		<!-- end of data -->
+		<title>Dream House Property | The Most Convenient Site For Rent&Sale Your Property</title>
+	</head>
+	<body>
+		<!-- jquery && bootstrap-->
+		<script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
+		<script type="text/javascript" src="./css/bootstrap-4.5.3-dist/js/bootstrap.js"></script>
+		<script type="text/javascript" src="./css/bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="./css/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+		<!-- end of jquery  -->
+		<!-- navbar -->
+    <span class="nav-btn" id="nav-btn">
+      <i class="fas fa-bars"></i>
+    </span>
+    <header class="navbar">
+		<span class="nav-close" id="nav-close">
+		  <i class="fas fa-times"></i>
+		</span>
+		<img class="navbar-logo" id="navbar-logo" src="./img/icon.jpg" alt="" />
+		<nav>
+		  <ul class="nav-center">
+			<li><a href="./property-update.html" class="nav-link">Edit Property</a></li>
+			<li><a href="./agent-estate-comment.html" class="nav-link">Search property</a></li>
+			<li><a href="./agent-profile.html" class="nav-link">Profile</a></li>
+			<li><a href="./agent-appointment.html" class="nav-link">View Appointment</a></li>
+		  </ul>
+		</nav>
+		<nav>
+		  <ul>
+			<li><a href="./index.html" class="nav-link" >Sign out</a></li>
+		  </ul>
+		</nav>
+	  </header>
+	<!-- end of navbar -->
+	<button class="btn chatBtn chatToggle" id="chatToggle">Reply Message<i class="far fa-comment-alt" style="margin-left: 1rem"></i></button>
+    <div class="chatbox">
+      <div class="chatbox-title">
+        <h4><i class="fas fa-comment-alt" style="margin-right: 0.5rem"></i>Reply Message</h4>
+      </div>
+      <div class="chat-container">
+        <div class="reply-content">
+          <span class="reply-icon" style="margin-right:0.5rem"><i class="fas fa-user"></i></span>
+          <p>I want to change appointment time.
+            <br/><span class="reply-time">10:55PM</span></p>
+        </div>
+
+      </div> 
+      <div class="chatsend-group">
+        <form class="chatform" id="replyChatForm" onsubmit="return false;">
+            <textarea required id="chatMsg" class="form-input" rows="5" placeholder="leave your message here." style="width:400px"></textarea>
+            <button class="btn" style="border-top-left-radius: 4px; border-top-right-radius: 4px; margin:0 auto; display: block;" id="agentSendMsg">Send Message</button>
+        </form>
+      </div>
+    </div>
+		<!-- featured estate section-->
+		<section class="section-center">
+			<div>
+				<span class="btn" style="display:block; margin: 2rem auto; width: 200px;border-radius: 4px;" id="addProperty">Add Property</span>
+			</div>
+			<div class="featured-estate-title">
+				<h2>Uploaded <span class="special-title">Property</span></h2>
+			</div>
+			<div class="featured-estate-container">
+			</div>
+		</section>
+		<!-- end of featured estate section -->
+		<footer>
+			<div class="footer-nav">
+				<ul class="footer-nav-container">
+					<li><a href="./property-update.html" class="footer-link">Edit Property</a></li>
+					<li><a href="./agent-estate-comment.html" class="footer-link">Search property</a></li>
+					<li><a href="./agent-profile.html" class="footer-link">Profile</a></li>
+					<li><a href="./index.html" class="footer-link">Sign out</a></li>
+				</ul>
+			</div>
+			<p class="copyright">
+				copyright &copy; Dream House property HK Inc. <span id="date"></span>.
+				all rights reserved
+			</p>
+		</footer>
+		<!-- load data -->
+		<!-- modal -->
+		<div class="modal" id="property_modal">
+
+			<!-- first modal -->
+			<div class="form-container propertyForm" >
+				<form onsubmit="return false;" id="propertyFormEditDialog" autocomplete="off">
+					<h4 style="text-align: center;margin-top: 2rem">Update Property</h4>
+					<div class="form-group-container">
+						<div class="form-group">
+							<label for="name" class="input-label">Property name</label><br/>
+							<input class="form-input" type="text" id="name" placeholder="Property Name">
+						</div>
+						<div class="form-group">
+							<label for="districtList" class="input-label">District</label><br/>
+							<input list="districtlist" required type="text" name="district" class="form-input" placeholder="Select the district" id="district" />
+              <datalist id="districtlist"></datalist>
+						</div>
+						<div class="form-group">
+							<label for="Square" class="input-label">Square</label><br/>
+							<input class="form-input" type="number" id="Square" required placeholder="Square">
+						</div>
+						<div class="form-group">
+							<label for="type" class="input-label">Type</label><br/>
+							<select class="form-input" id="type">
+								<option value="Rental">Rental</option>
+								<option value="Sale">Sale</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="promotion" class="input-label">Pin Promotion</label><br/>
+							<select class="form-input" id="promotion">
+								<option value="promotion" selected="selected">Pin Promotion Sales</option>
+								<option value="non-promotion">Remove Promotion Sales</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="price" class="input-label">Price</label><br/>
+							<input class="form-input" type="number" id="price" required placeholder="Price">
+						</div>
+						<div class="form-group">
+							<label for="address" class="input-label">Address</label><br/>
+							<textarea class="form-input" type="text" id="address" rows="5" required placeholder="Address"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="desc" class="input-label">Description</label><br/>
+							<textarea required rows="8" class="form-input" id="desc" placeholder="Enter Property Description Here"></textarea>
+						</div>
+						<!-- <div class="form-group">
+							<input type='file' id="imgInp" />
+  						<img id="blah" src="#" alt="your image" />
+						</div> -->
+						<div style="display: flex; justify-content: center;">
+							<button id="updateProperty" class="btn" style="margin-right: 2rem;">Update Property</button>
+							<button id="deteleProperty" class="btn" style="margin-right: 2rem;">Delete Property</button>
+						</div>
+
+					</div>
+				</form>
+			</div>
+
+			<!-- end of first modal -->
+
+			<div class="form-container addPropertyForm" >
+				<form onsubmit="return false;" id="addPropertyDialog" autocomplete="off">
+					<h4 style="text-align: center;margin-top: 2rem">Add Property</h4>
+					<div class="form-group-container">
+						<div class="form-group">
+							<label for="name" class="input-label">Property name</label><br/>
+							<input class="form-input" type="text" required id="propertyName" placeholder="Property Name">
+						</div>
+						<div class="form-group">
+							<label for="districtList" class="input-label">District</label><br/>
+							<input list="districtlist" required type="text" name="district" class="form-input" placeholder="Select the district" id="newDistrict" />
+              <datalist id="districtlist"></datalist>
+						</div>
+						<div class="form-group">
+							<label for="newSquare" class="input-label">Square</label><br/>
+							<input class="form-input" type="number" id="newSquare" required placeholder="Square">
+						</div>
+						<div class="form-group">
+							<label for="newType" class="input-label">Type</label><br/>
+							<select class="form-input" id="newType">
+								<option value="Rental">Rental</option>
+								<option value="Sale">Sale</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="newPrice" class="input-label">Price</label><br/>
+							<input class="form-input" type="number" id="newPrice" required placeholder="Price">
+						</div>
+						<div class="form-group">
+							<label for="newAddress" class="input-label">Address</label><br/>
+							<textarea class="form-input" type="text" id="newAddress" rows="3" required placeholder="Address"></textarea>
+						</div>
+						<div class="form-group">
+							<label for="newDesc" class="input-label">Description</label><br/>
+							<textarea required rows="8" class="form-input" id="newDesc" placeholder="Enter Property Description Here"></textarea>
+						</div>
+						<div class="form-group">
+							<input type='file' required  id="imgInp" />
+  						<img id="blah" src="#" style="visibility: hidden;" />
+						</div>
+						<button id="add" class="btn" style="border-radius: 4px;margin-top: 2rem; display:block; margin-left: auto; margin-right: auto;">Add Property</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<!-- end of modal -->
+		<script>
+		var currentBtn = null;
+		$(document).ready(function() {
+			var date = (document.getElementById(
+				"date"
+				).innerHTML = new Date().getFullYear());
+			appendAgentCommentEstate();
+			updateProperty();
+			appendDistrictList();
+			addProperty();
+			$(".chatbox").hide();
+        $("#agentSendMsg").click(function(){
+          if(document.getElementById("replyChatForm").checkValidity()){
+            var today = new Date();
+            var currentHours = today.getHours();
+            var currentMins = today.getMinutes();
+            currentMins = ("0" + currentMins).slice(-2)
+            currentHours = ("0" + currentHours).slice(-2);
+            $(".chat-container").append(` <div class="reply-content user-reply">
+          <p>`+ $("#chatMsg").val() + `
+            <br/><span class="reply-time" style="margin-top: 1rem;">Reply on ` + currentHours + ":" + currentMins + `</span></p>
+        </div>`)
+            $("#chatMsg").val('');
+            setTimeout(function() {
+              $(".chat-container").animate({ scrollTop: $(".chat-container").prop("scrollHeight") });
+              }, 500);
+          }
+        });
+
+        $("#chatToggle").click(function(){
+          if($(".chatbox").is(":visible")){
+            $(".chatbox").fadeOut(200); 
+          } else {
+            $(".chatbox").fadeIn(200);
+          }
+        });
+		});
+
+		function addProperty(){
+			$("#addProperty").click(function(){
+				$(".addPropertyForm").modal();
+				$("#add").click(function(){
+					if(document.getElementById("addPropertyDialog").checkValidity()){
+						var target = $(".featured-estate-container");
+					target.prepend(`<div class="featured-estate">
+	                          <div class="estate-img-container">
+	                          	<p class="sales hidden">Hot Sales</p>
+	                            <img src="` + $("#blah").attr("src") + `" alt="">
+	                            <a href="#` + `" class="estate-search-icon"><i class="fas fa-eye"></i></a>
+	                          </div>` +
+            `<div class="featured-estate-info">
+	                            <h4 class="estate_name">` + $("#propertyName").val() + `</h4>
+	                            <p class="estate_desc">` + $("#newDesc").val() + `</p>
+	                            <div class="featured-estate-footer">
+	                              <p class="estate_district">` + $("#newDistrict").val() + `</p>
+	                              <p class="estate_type">` + $("#newType").val() + `</p>
+	                              <p class="estate_price">$` + $("#newPrice").val() + `</p>
+	                            </div>` +
+            `<p class="btn btn-update"><i class="far fa-edit">&nbsp; </i> &nbsp;Update Property</p>` +
+            `</div>
+	                        </div>`);
+					$.modal.close();
+					}
+
+				});
+			});
+		}
+
+
+		$("#imgInp").change(function() {
+			  readURL(this);
+		});
+
+		function readURL(input) {
+		  if (input.files && input.files[0]) {
+		    var reader = new FileReader();
+		    var url = null;
+		    reader.onload = function(e) {
+		    	url = e.target.result;
+		      $('#blah').attr('src', e.target.result);
+		      $('#blah').css("visibility", "visible");
+		    }
+		    reader.readAsDataURL(input.files[0]); // convert to base64 string
+		  }
+		  return url;
+		}
+		</script>
+		<!-- end of load data -->
+		<!-- navbar js -->
+		<script src="./js/navbar.js"></script>
+	</body>
+</html>

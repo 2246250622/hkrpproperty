@@ -1,0 +1,47 @@
+				User
+=============================================
+User1:
+	email: User@gmail.com
+	password: user1234
+User2:
+	email: darkgreen@gmail.com
+	password: darkgreen
+User3:
+	email: 2246250622@gmail.com
+	password: 2246250622
+User4:
+	email: jason@gmail.com
+	password: 435343534
+User5:
+	email: 4354774563@gmail.com
+	password: Y43534646
+	
+======================================
+				Agent
+======================================
+Agent1:
+	email: Ameila@gmail.com
+	password: agent1234
+Agent2:
+	email: Age23nt@gmail.com
+	password: asfasgashb
+Agent3:
+	email: Agen51t@gmail.com
+	password: 21521512@
+Agent4:
+	email: AgenXDD23t@gmail.com
+	password: 1251tFSF
+Agent5:
+	email: Agen5214t@gmail.com
+	password: agent1234
+Agent6:
+	email: Agent1241@gmail.com
+	password: "agent1234
+
+======================================
+				Manager
+======================================
+
+Manager:
+	email: Manager@gmail.com
+	password: manager1234

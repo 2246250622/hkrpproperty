@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/ico/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/styles/styles.css">
+    <link rel="stylesheet" href="./css/fontawesome-free-5.15.1-web/css/all.css">
+    <link rel="stylesheet" href="./css/styles/search-property.css">
+    <link rel="stylesheet" href="./css/styles/estate.css">
+    <link rel="stylesheet" href="./css/styles/chatbox.css">
+    <!-- data -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="./data/house.js"></script>
+    <script src="./data/district.js"></script>
+    <script src="./js/loadData.js"></script>
+    <script src="./js/chatbox.js"></script>
+    <!-- end of data -->
+    <title>Dream House Property | The Most Convenient Site For Rent&Sale Your Property</title>
+  </head>
+  <body>
+    <!-- jquery && bootstrap-->
+    <script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="./css/bootstrap-4.5.3-dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="./css/bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./css/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/comment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <!-- end of jquery  -->
+    <!-- navbar -->
+    <span class="nav-btn" id="nav-btn">
+      <i class="fas fa-bars"></i>
+    </span>
+    <header class="navbar">
+      <span class="nav-close" id="nav-close">
+        <i class="fas fa-times"></i>
+      </span>
+      <img class="navbar-logo" id="navbar-logo" src="./img/icon.jpg" alt="" />
+      <nav>
+        <ul class="nav-center">
+          <li><a href="./index.html" class="nav-link">Home</a></li>
+          <li><a href="./property-search.html" class="nav-link">search property</a></li>
+          <li><a href="./user-profile.html" class="nav-link">profile</a></li>
+          <li><a href="./user-appointment.html" class="nav-link">Appointment Status</a></li>
+        </ul>
+      </nav>
+      <nav>
+        <ul>
+          <li><a href="./index.html" class="nav-link" >Sign out</a></li>
+        </ul>
+      </nav>
+    </header>
+    <!-- end of navbar -->
+    <button class="btn chatBtn chatToggle" id="chatToggle">Online Chat<i class="far fa-comment-alt" style="margin-left: 1rem"></i></button>
+    <div class="chatbox">
+      <div class="chatbox-title">
+        <h4><i class="fas fa-robot" style="margin-right: 0.5rem"></i>Online Inquiry</h4>
+      </div>
+      <div class="chat-container">
+        <div class="reply-content">
+          <span class="reply-icon" style="margin-right:0.5rem"><i class="fas fa-robot"></i></span>
+          <p>You can try using self-inquiry function to answer your doubt.
+            If still has any question, you can leave a message to us.
+            <br/><span class="reply-time">10:55PM</span></p>
+        </div>
+        
+      </div>
+
+      <div class="answerbtn-group" >
+        <button id="ctacAsk" class="btn chatBtn">create account</button>
+        <button id="searchAsk" class="btn chatBtn">find property</button>
+        <button id="mkappAsk" class="btn chatBtn">make appointment</button>
+        <button id="chatBtn" class="btn chatBtn">online chat</button>
+      </div>
+    </div>
+    <!-- header -->
+    <header class="header-section">
+      <div class="footerDetailsSection">
+        <h4 class="address"></h4>
+      </div>
+    </header>
+    <!-- end of header -->
+
+    <!-- property Details -->
+    <div class="section-center">
+      <h1 id="estateAdd">Propery Details</h1>
+      <div class="estate-container">
+        <div class="img-container estate-image-info">
+          <img src="" class="loadEstateImage">
+        </div>
+        <div class="estate-info">
+          <h4 class="estate-name-info"></h4>
+          <p class="estate-desc-info"></p>
+          <p class="estate-address-info"></p>
+          <p class="estate-type-info"></p>
+          <p class="estate-feet-info"></p>
+          <p class="estate-price-info"></p>
+          <div class="info-footer">
+            <p class="appointmentP">make appointment?</p>
+            <button id="booking" class="btn">Make Appointment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of property details -->
+
+    <!-- agent comment section -->
+    <div class="agent-comment-section">
+      <div class="agent-section-title">
+        <img class="profile-icon" src="./img/agent-profile.png" alt="">
+        <h4>Agent's comment for this estate</h4>
+      </div>
+      <p id="agent-comment"></p>
+      <div class="customer-comment">
+        <h2>Users Comment </h4>
+
+      </div>
+    </div>
+   <!--  end of agent-comment -->
+   <div class="user-comment-form">
+     <form class="comment-form" onsubmit="return false;">
+       <h3>Leave Your comment Here</h3>
+       <textarea required class="form-input" id="getUserComment"rows="15"></textarea>
+       <button id="comment" class="btn">Comment</button>
+     </form>
+   </div>
+    <!-- footer -->
+    <footer>
+      <div class="footer-nav">
+        <ul class="footer-nav-container">
+          <li><a href="index.html" class="footer-link">home</a></li>
+          <li><a href="property-search.html" class="footer-link">search property</a></li>
+          <li><a href="./user-profile.html" class="footer-link">profile</a></li>
+          <li><a href="./index.html" class="footer-link">logout</a></li>
+        </ul>
+      </div>
+      <p class="copyright">
+        copyright &copy; Dream House property HK Inc. <span id="date"></span>.
+        all rights reserved
+      </p>
+    </footer>
+    <form id="appointment-form" class="modal" action="user-appointment.html">
+      <h4 class="appointment-title">Make Appointment</h4>
+      Estate Name: &nbsp;&nbsp;&nbsp;<input class="form-input" readonly type="text" id="appointment-house-name" name="" value=""><br/>
+      Responsible Agent: &nbsp;&nbsp;<input class="form-input" readonly type="text" id="appointment-agent" name="" value=""><br/>
+      Preferred Date: <input type="date" required class="form-input" /><br/>
+      Preferred time: <input type="time" class="form-input" required min="09:00" max="18:00" /><br/>
+      Contact Email: <input type="email" class="form-input emailAppointment" required placeholder="email"/><br/>
+      Contact Phone:<input type="text" pattern="[1-9]{1}[0-9]{7}" class="form-input phoneAppointment" required placeholder="phone" title="Must contain 8 digit phone number"/><br/>
+      <input type="submit" class="btn appointmentBtn" value="Make Appointment"/>
+    </form>
+    <!-- load data -->
+    <script>
+      $(document).ready(function() {
+        var date = (document.getElementById(
+          "date"
+        ).innerHTML = new Date().getFullYear());
+        getHouseByIndex(0);
+        leaveComment();
+        $("#booking").click(function() {
+          $("#appointment-form").modal();
+
+        });
+        $(".appointmentBtn").click(function () {
+          console.log($("input[type='date']").val());
+
+        });
+        $("#booking").click(function() {
+          $("#appointment-form").modal();
+          console.log($("input[type='time']").val());
+        });
+
+        $(".chatbox").hide();
+        $(document).on("click", "#ctacAsk", function(){
+          appendAnswer(1);
+        });
+        $(document).on("click", "#searchAsk", function(){
+          appendAnswer(2);
+        });
+        $(document).on("click", "#mkappAsk", function(){
+          appendAnswer(3);
+        });
+        $(document).on("click", "#chatBtn", function(){
+          appendAnswer(4);
+        })
+        $(document).on("click", "#sendMsg", function(){
+          console.log("hello");
+          sendMsg();
+        });
+        $(document).on("click", "#out", function(){
+          restore();
+        });
+        $("#chatToggle").click(function(){
+          if($(".chatbox").is(":visible")){
+            $(".chatbox").fadeOut(200); 
+          } else {
+            $(".chatbox").fadeIn(200);
+          }
+        });
+      });
+
+
+    </script>
+    <!-- end of load data -->
+    <!-- navbar js -->
+
+    <script src="./js/navbar.js"></script>
+  </body>
+</html>

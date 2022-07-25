@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./img/ico/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./css/styles/styles.css">
+    <link rel="stylesheet" href="./css/fontawesome-free-5.15.1-web/css/all.css">
+    <link rel="stylesheet" href="./css/styles/search-property.css">
+    <link rel="stylesheet" href="./css/styles/estate.css">
+    <link rel="stylesheet" href="./css/styles/chatbox.css">
+    <!-- data -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="./data/house.js"></script>
+    <script src="./data/district.js"></script>
+    <script src="./js/loadData.js"></script>
+    <script src="./js/chatbox.js"></script>
+    <!-- end of data -->
+    <title>Dream House Property | The Most Convenient Site For Rent&Sale Your Property</title>
+  </head>
+  <body>
+    <!-- jquery && bootstrap-->
+    <script type="text/javascript" src="./js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="./css/bootstrap-4.5.3-dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="./css/bootstrap-4.5.3-dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./css/bootstrap-4.5.3-dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/comment.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <!-- end of jquery  -->
+    <!-- navbar -->
+    <span class="nav-btn" id="nav-btn">
+      <i class="fas fa-bars"></i>
+    </span>
+    <header class="navbar">
+      <span class="nav-close" id="nav-close">
+        <i class="fas fa-times"></i>
+      </span>
+      <img class="navbar-logo" id="navbar-logo" src="./img/icon.jpg" alt="" />
+      <nav>
+        <ul class="nav-center">
+          <li><a href="./index.html" class="nav-link">Home</a></li>
+          <li><a href="./property-search.html" class="nav-link">search property</a></li>
+		  		  <li><a href="./contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- header -->
+    <header class="header-section">
+      <div class="footerDetailsSection">
+        <h4 class="address"></h4>
+      </div>
+    </header>
+    <!-- end of header -->
+
+    <!-- property Details -->
+    <div class="section-center">
+      <h1 id="estateAdd">Propery Details</h1>
+      <div class="estate-container">
+        <div class="img-container estate-image-info">
+          <img src="" class="loadEstateImage">
+        </div>
+        <div class="estate-info">
+          <h4 class="estate-name-info"></h4>
+          <p class="estate-desc-info"></p>
+          <p class="estate-address-info"></p>
+          <p class="estate-type-info"></p>
+          <p class="estate-feet-info"></p>
+          <p class="estate-price-info"></p>
+          <div class="info-footer">
+            <button onclick="location.href='./property-search.html';" id="booking" class="btn">Go Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of property details -->
+
+
+
+    <!-- footer -->
+    <footer>
+      <div class="footer-nav">
+        <ul class="footer-nav-container">
+          <li><a href="index.html" class="footer-link">home</a></li>
+          <li><a href="property-search.html" class="footer-link">search property</a></li>
+        </ul>
+      </div>
+      <p class="copyright">
+        copyright &copy;  property HKRP Inc. <span id="date"></span>.
+        all rights reserved
+      </p>
+    </footer>
+    <!-- load data -->
+
+
+    <!-- modal -->
+
+    <script>
+      $(document).ready(function() {
+        var date = (document.getElementById(
+          "date"
+        ).innerHTML = new Date().getFullYear());
+        getHouseByIndex(0);
+        leaveComment();
+        $(".appointmentBtn").click(function () {
+          console.log($("input[type='date']").val());
+
+        });
+        $("#booking").click(function() {
+          $("#appointment-form").modal();
+          console.log($("input[type='time']").val());
+        });
+
+        $(".chatbox").hide();
+        $(document).on("click", "#ctacAsk", function(){
+          appendAnswer(1);
+        });
+        $(document).on("click", "#searchAsk", function(){
+          appendAnswer(2);
+        });
+        $(document).on("click", "#mkappAsk", function(){
+          appendAnswer(3);
+        });
+        $(document).on("click", "#chatBtn", function(){
+          appendAnswer(4);
+        })
+        $(document).on("click", "#sendMsg", function(){
+          console.log("hello");
+          sendMsg();
+        });
+        $(document).on("click", "#out", function(){
+          restore();
+        });
+        $("#chatToggle").click(function(){
+          if($(".chatbox").is(":visible")){
+            $(".chatbox").fadeOut(200); 
+          } else {
+            $(".chatbox").fadeIn(200);
+          }
+        });
+      });
+
+
+    </script>
+    <!-- end of load data -->
+    <!-- navbar js -->
+
+    <script src="./js/navbar.js"></script>
+  </body>
+</html>
